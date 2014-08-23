@@ -16,6 +16,14 @@
  limitations under the License.
  */
 
+/*
+ Note that this app exists only to demonstrate and test the KeyRing class.
+ It does nothing interesting, and the only visible result is the test
+ output written to the console.
+ */
+
+
+
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

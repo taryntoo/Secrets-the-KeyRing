@@ -97,10 +97,6 @@ bool TestKeyRingRemove(void)
 
 
 
-
-
-// TODO: without a removeValueForKey method this test may behave differently on first run.
-
 bool RunKeyRingTests(void)
 {
     boguskey = @"boguskey";
@@ -109,18 +105,14 @@ bool RunKeyRingTests(void)
     ccNumSecond = @"5678123456781234";
 
 
-    if( TestKeyRingForBogusKey()) {
-        if( TestKeyRingAdd()) {
-            if( TestKeyRingForGoodKey()) {
-                if( TestKeyRingUpDate()) {
-                    if( TestKeyRingRemove()) {
-                        NSLog(@"%s,\n   All tests passed, 2 warnings for %@ and 1 for %@ are expected.\n", __PRETTY_FUNCTION__, boguskey, barleykey);
+    if(   TestKeyRingForBogusKey()
+       && TestKeyRingAdd()
+       && TestKeyRingForGoodKey()
+       && TestKeyRingUpDate()
+       && TestKeyRingRemove() ){
 
-                        return true;
-                    }
-                }
-            }
-        }
+            NSLog(@"%s,\n   All tests passed, 2 warnings for %@ and 1 for %@ are expected.\n", __PRETTY_FUNCTION__, boguskey, barleykey);
+            return true;
     }
     return false;
 }

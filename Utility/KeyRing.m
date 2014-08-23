@@ -23,9 +23,9 @@
 // Probably won't ever need any instance methods for this class.
 @implementation KeyRing
 
-/** Assemble a dictioary for the "query" parameter of SecItem calls
- This is used by the keychain as a record selector for searches, updates, and deletes,
- and (with
+/** Assemble a dictionary for the "query" parameter of SecItem calls
+ This is used by the keychain as a record selector for searches, updates, 
+ and deletes, and as the record dictionary when creating new entries.
  */
 +(NSMutableDictionary*) newQueryDictionaryforKey:(NSString *)key {
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -35,7 +35,6 @@
                            nil];
     return query;
 }
-
 
 // Retrieve a value from the keychain
 +(NSString*) valueForKey:(NSString *)key {
@@ -58,8 +57,11 @@
     return nil;  // Not found
 }
 
-
 // Store value in the keychain using key
+// This manages both "add" and "update" actions in a single method.
+// If the calling app wants to treate add and update differently, perhaps
+// warning before overwrite, it should test first using valueForKey,
+// then continue or cancel as desired.
 +(bool) storeValue:(NSString *)value forKey:(NSString *)key {
 
     OSStatus status = 0;
@@ -101,6 +103,5 @@
 
     return false;
 }
-
 
 @end

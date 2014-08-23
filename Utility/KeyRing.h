@@ -31,6 +31,10 @@
 +(NSString*) valueForKey:(NSString *)key;
 
 // Store value in the keychain using key
+// This manages both "add" and "update" actions in a single method.
+// If the calling app wants to treate add and update differently, perhaps
+// warning before overwrite, it should test first using valueForKey,
+// then continue or cancel as desired.
 +(bool) storeValue:(NSString *)value forKey:(NSString *)key;
 
 // Completely remove entry from keychain

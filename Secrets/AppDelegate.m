@@ -38,11 +38,7 @@
     // Override point for customization after application launch.
 
 #if TestKeyRingAtAppStartup
-    @autoreleasepool {
-        for (int i=0; i<1000 ; i++) {
-            RunKeyRingTests();
-        }
-    }
+    RunKeyRingTests();
 #endif
 
 
