@@ -1,7 +1,7 @@
 Secrets-the-KeyRing
 ===================
 
-Slides, lecture notes, and source for a presentation on security theory, with an implementaion wrapping Apple keychain APIs. 
+Slides, lecture notes, and source for a presentation on security theory, with an implementation wrapping Apple keychain APIs. 
 This was presented to South Florida Cocoa developers in August, 2014. 
 https://www.meetup.com/Cocoa-Developers/events/197557682/
 
